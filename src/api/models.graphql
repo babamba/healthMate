@@ -1,40 +1,42 @@
-# 느낌표는 필수 일때 
+# 느낌표는 필수 일때
 # unique 는 fk pk
-# 배열은 해당 요소 여러개 일때 
+# 배열은 해당 요소 여러개 일때
 # 데이터 모델 자기자신에대해 관계형성이 가능
 
 # mutation create 사용자를 생성하는거
 # connect 생성된 사용자가 있으면 연결
-# disconnect 
+# disconnect
 
 type User {
-  id: ID! 
+  id: ID!
   avatar: String
-  username: String! 
-  email: String! 
-  firstName: String 
+  username: String!
+  email: String!
+  firstName: String
   lastName: String
   bio: String
-  following: [User!]! 
-  followers: [User!]! 
+  following: [User!]!
+  followers: [User!]!
   posts: [Post!]!
   likes: [Like!]!
   comments: [Comment!]!
-  rooms:[Room!]!
-  loginSecret:String
+  rooms: [Room!]!
+  loginSecret: String
   # computed
   fullName: String
-  isFollowing:Boolean!
-  isSelf:Boolean!
+  isFollowing: Boolean!
+  isSelf: Boolean!
   followingCount: Int!
   followersCount: Int!
   postsCount: Int!
-  createdAt:String
-  updatedAt:String
+  address: String
+  plan: [Plan!]!
+  createdAt: String
+  updatedAt: String
 }
 
 type Post {
-  id: ID! 
+  id: ID!
   location: String
   caption: String!
   user: User!
@@ -44,49 +46,79 @@ type Post {
   isLiked: Boolean!
   likeCount: Int!
   commentCount: Int!
-  createdAt:String
-  updatedAt:String
+  createdAt: String
+  updatedAt: String
 }
 
 type Like {
-  id: ID! 
+  id: ID!
   user: User!
   post: Post!
-  createdAt:String
-  updatedAt:String
+  createdAt: String
+  updatedAt: String
 }
 
 type Comment {
-  id: ID! 
+  id: ID!
   text: String!
   user: User!
   post: Post!
-  createdAt:String
-  updatedAt:String
+  createdAt: String
+  updatedAt: String
 }
 
 type File {
-  id: ID! 
+  id: ID!
   url: String!
   post: Post!
-  createdAt:String
-  updatedAt:String
+  createdAt: String
+  updatedAt: String
 }
 
 type Room {
-  id: ID! 
+  id: ID!
   participants: [User!]!
-  messages:[Message!]!
-  createdAt:String
-  updatedAt:String
+  messages: [Message!]!
+  createdAt: String
+  updatedAt: String
 }
 
 type Message {
-  id: ID! 
-  text: String! 
-  from: User!  
-  to: User! 
-  room:Room!
-  createdAt:String
-  updatedAt:String
+  id: ID!
+  text: String!
+  from: User!
+  to: User!
+  room: Room!
+  createdAt: String
+  updatedAt: String
+}
+
+type Exercise {
+  id: ID!
+  title: String!
+  createdAt: String
+  updatedAt: String
+}
+
+type Plan {
+  id: ID!
+  user: User!
+  planTitle: String!
+  exerciseType: Exercise!
+  exerciseDate: String!
+  exerciseTime: String!
+  activity: [Activity!]!
+  createdAt: String
+  updatedAt: String
+}
+
+type Activity {
+  id: ID!
+  plan: [Plan!]!
+  title: String!
+  second: Int
+  count: Int
+  set: String
+  createdAt: String
+  updatedAt: String
 }

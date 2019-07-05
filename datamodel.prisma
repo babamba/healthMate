@@ -26,8 +26,10 @@ type User {
   posts: [Post!]! @relation(name: "PostsOfUser", onDelete: CASCADE)
   likes: [Like!]! @relation(name: "LikesOfUser", onDelete: CASCADE)
   comments: [Comment!]! @relation(name: "CommentsOfUser", onDelete: CASCADE)
+  plan : [Plan!]! @relation(name : "PlansOfUser", onDelete: CASCADE )
   rooms:[Room!]!
   loginSecret:String
+  address: String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
@@ -83,6 +85,36 @@ type Message {
   from: User!  @relation(name:"From")
   to: User! @relation(name:"To")
   room:Room!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Exercise {
+  id: ID! @id
+  title : String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Plan {
+  id: ID! @id
+  user: User! @relation(name: "PlansOfUser")
+  planTitle : String!
+  exerciseType : Exercise!
+  exerciseDate : DateTime!
+  exerciseTime : String!
+  activity : [Activity!]!  @relation(name: "PlansOfActivity", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Activity {
+  id: ID! @id
+  plan : Plan! @relation(name : "PlansOfActivity")
+  title : String!
+  second : Int
+  count : Int
+  set : String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
