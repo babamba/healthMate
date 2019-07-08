@@ -20,6 +20,7 @@ export default {
               connect: [{ id: toId }, { id: user.id }]
             }
           });
+          room.participants = await prisma.room({ id: room.id }).participants();
         }
       } else {
         //채팅방이 있을경우 채팅방 찾아서 넣기
@@ -33,7 +34,7 @@ export default {
       }
       //const participantList = prisma.room({ id: room.id }).participants();
 
-      console.log("room", room);
+      //console.log("room", room);
       //  console.log("participantList", participantList);
 
       const getTo = room.participants.filter(
