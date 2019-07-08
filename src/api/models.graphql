@@ -80,6 +80,8 @@ type Room {
   participants: [User!]!
   messages: [Message!]!
   lastMessage: [Message!]!
+  person: [User!]!
+  me: User!
   createdAt: String
   updatedAt: String
 }

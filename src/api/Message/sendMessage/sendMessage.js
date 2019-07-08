@@ -8,7 +8,8 @@ export default {
       const { roomId, message, toId } = args;
 
       let room;
-      //console.log(roomId);
+      console.log("roomId", roomId);
+      console.log("message", message);
       //채팅방이 없으면 채팅방 개설
       if (roomId === undefined) {
         //나자신과 방은 만들게 하지않기위해
@@ -25,6 +26,7 @@ export default {
       } else {
         //채팅방이 있을경우 채팅방 찾아서 넣기
         room = await prisma.room({ id: roomId });
+        console.log(room);
         room.participants = await prisma.room({ id: roomId }).participants();
         room.message = await prisma.room({ id: roomId }).messages();
       }
