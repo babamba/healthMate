@@ -7,7 +7,7 @@ export default {
       isAuthenticated(request);
       const { user } = request;
       //return prisma.user({id: user.id}).$fragment(USER_FRAGMENT);
-      console.log("me #*#*#* : ", user);
+      // console.log("me #*#*#* : ", user);
       return await prisma.user({ id: user.id });
       // const userProfile = await prisma.user({id: user.id});
       // const posts = await prisma.user({id: user.id}).posts();

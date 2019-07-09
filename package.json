@@ -8,6 +8,7 @@
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "aws-sdk": "^2.484.0",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^8.0.0",
     "graphql-tools": "^4.0.5",
     "graphql-yoga": "^1.18.0",
