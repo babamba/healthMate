@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import path from "path";
 // dotenv.config({path: path.resolve(__dirname, ".env")});
 import "./env";
-import { GraphQLServer } from "graphql-yoga";
+import { GraphQLServer, PubSub } from "graphql-yoga";
 import logger from "morgan";
 import schema from "./schema";
 import "./passport";
@@ -15,7 +15,8 @@ const PORT = process.env.PORT || 4000;
 const server = new GraphQLServer({
   //typeDefs, resolvers
   schema,
-  context: ({ request }) => ({ request, isAuthenticated })
+  context: ({ request }) => ({ request, isAuthenticated }),
+  PubSub
 });
 
 server.express.use(logger("dev"));
