@@ -11,12 +11,12 @@ import { isAuthenticated } from "./middlewares";
 import { uploadMiddleware, uploadController } from "./upload";
 
 const PORT = process.env.PORT || 4000;
-
+const pubsub = new PubSub();
 const server = new GraphQLServer({
   //typeDefs, resolvers
   schema,
   context: ({ request }) => ({ request, isAuthenticated }),
-  PubSub
+  pubsub
 });
 
 server.express.use(logger("dev"));

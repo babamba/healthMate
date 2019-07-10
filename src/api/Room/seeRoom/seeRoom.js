@@ -13,7 +13,8 @@ export default {
       });
 
       if (canSee) {
-        return prisma.room({ id });
+        console.log(await prisma.room({ id }));
+        return await prisma.room({ id });
         //return prisma.room({id}).$fragment(ROOM_FRAGMENT);
         // const messages = await prisma.room({id}).messages();
         // return {
