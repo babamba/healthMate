@@ -32,6 +32,8 @@ type User {
   postsCount: Int!
   address: String
   plan: [Plan!]!
+  latitude: Float
+  longitude: Float
   createdAt: String
   updatedAt: String
 }

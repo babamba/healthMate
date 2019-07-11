@@ -31,6 +31,8 @@ type User {
   rooms:[Room!]!
   loginSecret:String
   address: String
+  latitude: Float
+  longitude: Float
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
