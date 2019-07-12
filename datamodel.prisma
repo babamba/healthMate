@@ -30,6 +30,14 @@ type User {
   plan : [Plan!]! @relation(name : "PlansOfUser", onDelete: CASCADE )
   rooms:[Room!]!
   loginSecret:String
+  location: Location @relation(name: "LocationOfUser")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Location {
+  id: ID! @id
+  user: User! @relation(link: TABLE , name: "LocationOfUser")
   address: String
   latitude: Float
   longitude: Float
@@ -49,6 +57,14 @@ type Post {
   updatedAt: DateTime! @updatedAt
 }
 
+type File {
+  id: ID! @id
+  url: String!
+  post: Post @relation(name: "FilesOfPost")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
 type Like {
   id: ID! @id
   user: User @relation(name: "LikesOfUser")
@@ -62,14 +78,6 @@ type Comment {
   text: String!
   user: User @relation(name: "CommentsOfUser")
   post: Post @relation(name: "CommentOfPost")
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-}
-
-type File {
-  id: ID! @id
-  url: String!
-  post: Post @relation(name: "FilesOfPost")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

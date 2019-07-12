@@ -9,6 +9,7 @@
     "@babel/preset-env": "^7.4.5",
     "aws-sdk": "^2.484.0",
     "bcryptjs": "^2.4.3",
+    "deg2rad": "^1.0.0",
     "dotenv": "^8.0.0",
     "graphql-tools": "^4.0.5",
     "graphql-yoga": "^1.18.0",
@@ -22,7 +23,8 @@
     "nodemailer-sendgrid-transport": "^0.2.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "prisma-client-lib": "^1.34.0"
+    "prisma-client-lib": "^1.34.0",
+    "rad2deg": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

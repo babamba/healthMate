@@ -23,6 +23,9 @@ type User {
   comments: [Comment!]!
   rooms: [Room!]!
   loginSecret: String
+  plan: [Plan!]!
+  location: Location
+  # location: Location
   # computed
   fullName: String
   isFollowing: Boolean!
@@ -30,13 +33,26 @@ type User {
   followingCount: Int!
   followersCount: Int!
   postsCount: Int!
+  createdAt: String
+  updatedAt: String
+}
+
+type Location {
+  id: ID!
+  user: User!
   address: String
-  plan: [Plan!]!
   latitude: Float
   longitude: Float
   createdAt: String
   updatedAt: String
 }
+
+# type Location {
+#   id: ID!
+#   user: User!
+#   latitude: Float
+#   longitude: Float
+# }
 
 type Post {
   id: ID!

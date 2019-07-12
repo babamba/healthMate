@@ -1515,6 +1515,11 @@ define-property@^2.0.2:
     is-descriptor "^1.0.2"
     isobject "^3.0.1"
 
+deg2rad@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/deg2rad/-/deg2rad-1.0.0.tgz#c209f7a14a50f6442f0a43f2afe0d0c02c315166"
+  integrity sha1-wgn3oUpQ9kQvCkPyr+DQwCwxUWY=
+
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
@@ -3476,6 +3481,11 @@ querystring@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
+
+rad2deg@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rad2deg/-/rad2deg-1.0.0.tgz#3acac97ea530c359ebd4ae42c5e51b38f63b1dd4"
+  integrity sha1-OsrJfqUww1nr1K5CxeUbOPY7HdQ=
 
 range-parser@~1.2.1:
   version "1.2.1"
