@@ -10,7 +10,7 @@ export default {
       //  const { user } = request;
 
       const user = await prisma.users({
-        first: 5,
+        first: 10,
         orderBy: "createdAt_DESC"
       });
 
