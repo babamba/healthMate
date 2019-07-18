@@ -4,14 +4,14 @@ export default {
   Query: {
     seeUser: async (_, args) => {
       //isAuthenticated(request);
-      const { username } = args;
+      const { id } = args;
       // const user = await prisma.user({ id});
       // const posts = await prisma.user({ id }).posts();
       // return{
       //      user,
       //      posts
       // }
-      return prisma.user({ username });
+      return prisma.user({ id });
     }
   }
 };

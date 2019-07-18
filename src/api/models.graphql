@@ -35,6 +35,7 @@ type User {
   postsCount: Int!
   createdAt: String
   updatedAt: String
+  lastPlan: [Plan]
 }
 
 type Location {
@@ -118,6 +119,7 @@ type Message {
 type Exercise {
   id: ID!
   title: String!
+  image: String!
   createdAt: String
   updatedAt: String
 }
@@ -125,11 +127,12 @@ type Exercise {
 type Plan {
   id: ID!
   user: User!
-  planTitle: String!
+  planTitle: String
   exerciseType: Exercise!
   exerciseDate: String!
   exerciseTime: String!
   activity: [Activity!]!
+  planImage: String
   createdAt: String
   updatedAt: String
 }

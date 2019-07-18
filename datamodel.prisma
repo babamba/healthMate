@@ -103,6 +103,7 @@ type Message {
 type Exercise {
   id: ID! @id
   title : String!
+  image : String!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
@@ -114,6 +115,7 @@ type Plan {
   exerciseType : Exercise!
   exerciseDate : DateTime!
   exerciseTime : String!
+  planImage: String
   activity : [Activity!]!  @relation(name: "PlansOfActivity", onDelete: CASCADE)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt

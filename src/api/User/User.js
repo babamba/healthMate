@@ -15,6 +15,11 @@ export default {
     comments: ({ id }) => prisma.user({ id }).comments(),
     rooms: ({ id }) => prisma.user({ id }).rooms(),
     location: ({ id }) => prisma.user({ id }).location(),
+    plan: ({ id }) => prisma.user({ id }).plan(),
+    lastPlan: ({ id }) =>
+      prisma.user({ id }).plan({
+        first: 1
+      }),
     postsCount: ({ id }) =>
       prisma
         .postsConnection({ where: { user: { id } } })
