@@ -38,11 +38,11 @@ export default {
 
     //fullName:(_, args, { request }) => {
     //parent 로 부터 모든걸 받을 수있다.
-    fullName: parent => {
-      console.log("parent", parent);
-      //console.log(request);
-      return `${parent.firstName} ${parent.lastName}`;
-    },
+    // fullName: parent => {
+    //   console.log("parent", parent);
+    //   //console.log(request);
+    //   return `${parent.firstName} ${parent.lastName}`;
+    // },
     // 내가 요청한 아이디를 팔로잉하고있는지
     isFollowing: async (parent, _, { request }) => {
       // 요청한 유저

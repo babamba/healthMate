@@ -8,8 +8,8 @@ export default {
       const {
         username,
         email,
-        firstName = "",
-        lastName = "",
+        // firstName = "",
+        // lastName = "",
         bio = "",
         password
       } = args;
@@ -26,8 +26,8 @@ export default {
       await prisma.createUser({
         username,
         email,
-        firstName,
-        lastName,
+        // firstName,
+        // lastName,
         bio,
         password: hashedPassword
       });
