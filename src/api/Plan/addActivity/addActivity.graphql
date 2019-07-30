@@ -1,0 +1,11 @@
+type Mutation {
+  addActivity(items: [LineItem]): Plan!
+}
+
+input LineItem {
+  planId: String!
+  title: String!
+  second: Int
+  count: Int
+  set: String
+}
