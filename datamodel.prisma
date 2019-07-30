@@ -27,6 +27,7 @@ type User {
   likes: [Like!]! @relation(name: "LikesOfUser", onDelete: CASCADE)
   comments: [Comment!]! @relation(name: "CommentsOfUser", onDelete: CASCADE)
   plan : [Plan!]! @relation(name : "PlansOfUser", onDelete: CASCADE )
+  schedules : [Schedule!]! @relation(name: "ScheduleOfUser", onDelete: CASCADE)
   rooms:[Room!]!
   loginSecret:String
   location: Location @relation(name: "LocationOfUser")
@@ -112,8 +113,6 @@ type Plan {
   user: User! @relation(name: "PlansOfUser")
   planTitle : String!
   exerciseType : Exercise!
-  exerciseDate : DateTime!
-  exerciseTime : String!
   planImage: String
   activity : [Activity!]!  @relation(name: "PlansOfActivity", onDelete: CASCADE)
   createdAt: DateTime! @createdAt
@@ -127,6 +126,16 @@ type Activity {
   second : Int
   count : Int
   set : String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Schedule {
+  id: ID! @id
+  user : User @relation(name: "ScheduleOfUser")
+  plan: [Plan] @relation(link: TABLE)
+  exerciseDate: DateTime!
+  isChecked: Boolean @default(value:false)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

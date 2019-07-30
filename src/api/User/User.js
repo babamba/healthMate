@@ -15,6 +15,7 @@ export default {
     comments: ({ id }) => prisma.user({ id }).comments(),
     rooms: ({ id }) => prisma.user({ id }).rooms(),
     location: ({ id }) => prisma.user({ id }).location(),
+    schedules: ({ id }) => prisma.user({ id }).schedules(),
     plan: ({ id }) => prisma.user({ id }).plan(),
     lastPlan: ({ id }) =>
       prisma.user({ id }).plan({

@@ -23,6 +23,7 @@ type User {
   rooms: [Room!]!
   loginSecret: String
   plan: [Plan!]!
+  schedules: [Schedule!]!
   location: Location
   # location: Location
   # computed
@@ -128,21 +129,29 @@ type Plan {
   user: User!
   planTitle: String
   exerciseType: Exercise!
-  exerciseDate: String!
-  exerciseTime: String!
-  activity: [Activity!]!
   planImage: String
+  activity: [Activity!]!
   createdAt: String
   updatedAt: String
 }
 
 type Activity {
   id: ID!
-  plan: [Plan!]!
+  plan: [Plan!]
   title: String!
   second: Int
   count: Int
   set: String
+  createdAt: String
+  updatedAt: String
+}
+
+type Schedule {
+  id: ID!
+  user: User!
+  plan: [Plan!]
+  exerciseDate: String!
+  isChecked: Boolean
   createdAt: String
   updatedAt: String
 }
