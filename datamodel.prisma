@@ -123,9 +123,9 @@ type Activity {
   id: ID! @id
   plan : Plan! @relation(name : "PlansOfActivity")
   title : String!
-  second : Int
-  count : Int
-  set : Int
+  second : Int @default(value:0)
+  count : Int @default(value:0)
+  set : Int @default(value:0)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
