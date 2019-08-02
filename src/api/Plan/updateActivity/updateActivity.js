@@ -28,6 +28,8 @@ export default {
           });
         } else if (action === DELETE) {
           await prisma.deleteActivity({ id: activityId });
+        } else {
+          throw Error("You can't do that");
         }
       }
 
