@@ -10,8 +10,8 @@ export default {
 
       const { activityId, title, second, count, set, action } = args;
 
-      const activity = prisma.activity({ id: activityId });
-      const plan = prisma.activity({ id: activityId }).plan();
+      const activity = await prisma.activity({ id: activityId });
+      const plan = await prisma.activity({ id: activityId }).plan();
 
       if (activity) {
         if (action === UPDATE) {
