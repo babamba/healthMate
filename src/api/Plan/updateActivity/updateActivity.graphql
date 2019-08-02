@@ -1,0 +1,15 @@
+enum ACTIONS {
+  UPDATE
+  DELETE
+}
+
+type Mutation {
+  updateActivity(
+    activityId: String!
+    title: String
+    second: Int
+    count: Int
+    set: Int
+    action: ACTIONS
+  ): Plan!
+}
