@@ -125,7 +125,7 @@ type Activity {
   title : String!
   second : Int @default(value:0)
   count : Int @default(value:0)
-  set : Int @default(value:0)
+  set : String @default(value:"0")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

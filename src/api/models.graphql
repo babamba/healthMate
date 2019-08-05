@@ -141,7 +141,7 @@ type Activity {
   title: String!
   second: Int
   count: Int
-  set: Int
+  set: String
   createdAt: String
   updatedAt: String
 }

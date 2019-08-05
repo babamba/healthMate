@@ -7,5 +7,5 @@ input LineItem {
   title: String!
   second: Int
   count: Int
-  set: Int
+  set: String
 }
