@@ -9,7 +9,7 @@ type Mutation {
     title: String
     second: Int
     count: Int
-    set: Int
+    set: String
     action: ACTIONS
   ): Plan!
 }

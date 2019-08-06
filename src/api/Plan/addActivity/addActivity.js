@@ -33,6 +33,7 @@ export default {
           }
         });
       });
+
       const plan = await prisma.plan({ id: planId });
       // plan.activity = await prisma.plan({ id: planId }).activity();
 

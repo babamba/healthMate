@@ -1,0 +1,9 @@
+type Mutation {
+  updatePlan(
+    planId: String!
+    planTitle: String
+    exerciseType: String
+    planImage: String
+    action: ACTIONS
+  ): Plan!
+}
