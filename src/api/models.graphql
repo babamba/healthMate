@@ -154,4 +154,7 @@ type Schedule {
   isChecked: Boolean
   createdAt: String
   updatedAt: String
+  # computed
+  date: String
+  time: String
 }

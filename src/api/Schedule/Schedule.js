@@ -1,4 +1,5 @@
 import { prisma } from "../../../generated/prisma-client";
+import moment from "moment";
 
 //db필드에는 없는  computed 혹은 custom field(임의)
 // resolver 에 있으니까 custom resolver
@@ -9,6 +10,10 @@ import { prisma } from "../../../generated/prisma-client";
 export default {
   Schedule: {
     plan: ({ id }) => prisma.schedule({ id }).plan(),
-    user: ({ id }) => prisma.schedule({ id }).user()
+    user: ({ id }) => prisma.schedule({ id }).user(),
+    date: ({ id }) =>
+      moment(prisma.schedule({ id }).exerciseDate()).format("YYYY-MM-DD"),
+    time: ({ id }) =>
+      moment(prisma.schedule({ id }).exerciseDate()).format("HH:mm")
   }
 };
