@@ -11,9 +11,9 @@ export default {
   Schedule: {
     plan: ({ id }) => prisma.schedule({ id }).plan(),
     user: ({ id }) => prisma.schedule({ id }).user(),
-    date: ({ id }) =>
-      moment(prisma.schedule({ id }).exerciseDate()).format("YYYY-MM-DD"),
-    time: ({ id }) =>
-      moment(prisma.schedule({ id }).exerciseDate()).format("HH:mm")
+    date: async ({ id }) =>
+      moment(await prisma.schedule({ id }).exerciseDate()).format("YYYY-MM-DD"),
+    time: async ({ id }) =>
+      moment(await prisma.schedule({ id }).exerciseDate()).format("HH:mm")
   }
 };
