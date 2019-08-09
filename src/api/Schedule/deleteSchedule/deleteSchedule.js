@@ -5,15 +5,50 @@ export default {
     deleteSchedule: async (_, args, { request, isAuthenticated }) => {
       isAuthenticated(request);
       const { user } = request;
-      const { scheduleId } = args;
+      const { scheduleId, planId } = args;
 
       const schedule = await prisma.schedule({ id: scheduleId });
 
+      console.log("schedule : ", schedule);
+      console.log("planId : ", planId);
+
       if (schedule) {
-        prisma.deleteSchedule({ id: scheduleId });
+        await prisma.updateSchedule({
+          where: { id: scheduleId },
+          data: {
+            plan: {
+              disconnect: {
+                id: planId
+              }
+            }
+          }
+        });
+        // prisma
+        //        .likesConnection({
+        //             where:{ post :{ id :parent.id } }
+        //        })
+        //        .aggregate()
+        //        .count(),
+        console.log("length", schedule.length);
       } else {
         throw Error("You can't do that");
       }
+
+      //     try {
+      //       await prisma.updateUser({
+      //            where : { id: user.id},
+      //            data : {
+      //                 following:{
+      //                      disconnect:{
+      //                           id
+      //                      }
+      //                 }
+      //            }
+      //       });
+      //       return true;
+      //  } catch (error) {
+      //       return false;
+      //  }
 
       return schedule;
 
