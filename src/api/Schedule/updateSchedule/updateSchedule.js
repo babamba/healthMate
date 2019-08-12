@@ -10,7 +10,7 @@ export default {
       const schedule = await prisma.schedule({ id: scheduleId });
 
       if (schedule) {
-        await prisma.updateSchedule({
+        return await prisma.updateSchedule({
           where: { id: scheduleId },
           data: {
             plan: {
@@ -20,17 +20,9 @@ export default {
             }
           }
         });
-        // prisma
-        //        .likesConnection({
-        //             where:{ post :{ id :parent.id } }
-        //        })
-        //        .aggregate()
-        //        .count(),
-        console.log("length", schedule.length);
       } else {
         throw Error("You can't do that");
       }
-      return schedule;
     }
   }
 };
