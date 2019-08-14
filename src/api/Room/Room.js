@@ -6,7 +6,6 @@ export default {
     messages: ({ id }) =>
       prisma.room({ id }).messages({ orderBy: "createdAt_DESC" }),
     lastMessage: ({ id }) => prisma.room({ id }).messages({ last: 1 }),
-
     person: (parent, _, { request }) => {
       const { user } = request;
       const { id } = parent;

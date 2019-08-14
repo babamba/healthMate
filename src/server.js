@@ -15,8 +15,11 @@ const pubsub = new PubSub();
 const server = new GraphQLServer({
   //typeDefs, resolvers
   schema,
-  context: ({ request }) => ({ request, isAuthenticated }),
-  pubsub
+  context: ({ request }) => ({
+    request,
+    isAuthenticated,
+    pubsub
+  })
 });
 
 server.express.use(logger("dev"));

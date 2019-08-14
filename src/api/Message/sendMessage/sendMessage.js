@@ -1,8 +1,10 @@
 import { prisma } from "../../../../generated/prisma-client";
 
+const NEW_MESSAGE = "newMessage";
+
 export default {
   Mutation: {
-    sendMessage: async (_, args, { request, isAuthenticated }) => {
+    sendMessage: async (_, args, { request, isAuthenticated, pubsub }) => {
       isAuthenticated(request);
       const { user } = request;
       const { roomId, message, toId } = args;
@@ -43,7 +45,7 @@ export default {
         participant => participant.id !== user.id
       )[0];
 
-      return prisma.createMessage({
+      const newMessage = prisma.createMessage({
         text: message,
         from: {
           connect: {
@@ -61,6 +63,12 @@ export default {
           }
         }
       });
+
+      pubsub.publish(NEW_MESSAGE, {
+        newMessage
+      });
+
+      return newMessage;
     }
   }
 };

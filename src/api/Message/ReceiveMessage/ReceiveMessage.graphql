@@ -1,0 +1,13 @@
+type Subscription {
+  ReceiveMessage(userId: String!): Message
+}
+
+type SendUser {
+  _id: String!
+  name: String!
+  avatar: String
+}
+
+# type Subscription {
+#   newMessage(roomId: String!): Message
+# }

@@ -114,6 +114,9 @@ type Message {
   room: Room!
   createdAt: String
   updatedAt: String
+  #computed
+  user: SendUser!
+  _id: String!
 }
 
 type Exercise {
